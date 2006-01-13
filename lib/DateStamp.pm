@@ -3,9 +3,9 @@ package DateStamp;
 # | PACKAGE | DateStamp
 # | AUTHOR  | Todd Wylie
 # | EMAIL   | perldev@monkeybytes.org
-# | ID      | $Id: DateStamp.pm 3 2005-11-30 04:06:02Z Todd Wylie $
+# | ID      | $Id: DateStamp.pm 6 2006-01-13 23:00:39Z Todd Wylie $
 
-use version; $VERSION = qv('1.0.2');
+use version; $VERSION = qv('1.0.3');
 use warnings;
 use strict;
 use Carp;
@@ -39,8 +39,9 @@ sub new {
         $year,
         $week_day,
         $year_day,
-        ) = localtime(time);
-    
+        $daylight_savings_time,
+        ) = localtime();
+
     # Convert time values to desired format.
     $year  += 1900;
     $month += 1;
@@ -52,25 +53,25 @@ sub new {
 
     # Day, month, time lookup tables.
     my %day_alpha = (
-                     '0' => 'Monday',
-                     '1' => 'Tuesday',
-                     '2' => 'Wednesday',
-                     '3' => 'Thursday',
-                     '4' => 'Friday',
-                     '5' => 'Saturday',
-                     '6' => 'Sunday',
+                     '0' => 'Sunday',
+                     '1' => 'Monday',
+                     '2' => 'Tuesday',
+                     '3' => 'Wednesday',
+                     '4' => 'Thursday',
+                     '5' => 'Friday',
+                     '6' => 'Saturday',
                      );
     
     my %month_alpha = (
-                       '1'  => 'January',
-                       '2'  => 'February',
-                       '3'  => 'March',
-                       '4'  => 'April',
-                       '5'  => 'May',
-                       '6'  => 'June',
-                       '7'  => 'July',
-                       '8'  => 'August',
-                       '9'  => 'September',
+                       '01' => 'January',
+                       '02' => 'February',
+                       '03' => 'March',
+                       '04' => 'April',
+                       '05' => 'May',
+                       '06' => 'June',
+                       '07' => 'July',
+                       '08' => 'August',
+                       '09' => 'September',
                        '10' => 'October',
                        '11' => 'November',
                        '12' => 'December',
@@ -256,7 +257,7 @@ sub return_time {
     if ($args{format} eq "localtime") {
         my $day   = $class->return_day( format=>'alpha', length=>'short' );
         my $month = $class->return_month( format=>'alpha', length=>'short' );
-        my $mday  = $class->{_month};
+        my $mday  = $class->{_month_day};
         my $time  = $class->return_time( format=>'24', length=>'long' );
         my $year  = $class->{_year};
         my @timestamp = ($day, $month, $mday, $time, $year);
@@ -415,7 +416,7 @@ DateStamp - A simple OO interface to current system time and date.
 
 =head1 VERSION
 
-This document describes DateStamp version 1.0.2
+This document describes DateStamp version 1.0.3
 
 
 =head1 SYNOPSIS

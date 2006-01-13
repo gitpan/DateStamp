@@ -1,4 +1,4 @@
-DateStamp version 1.0.2
+DateStamp version 1.0.3
 
 DateStamp is a simple OO interface to current system time and date. Call this module from other applications to get a quick handle (timestamp/datestamp) on system time and date information.
 
@@ -28,7 +28,7 @@ None.
 
 COPYRIGHT AND LICENSE
 
-Copyright (C) 2005, Todd Wylie (perldev@monkeybytes.org).
+Copyright (C) 2005-2006, Todd Wylie (perldev@monkeybytes.org).
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

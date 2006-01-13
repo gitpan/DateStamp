@@ -1,5 +1,11 @@
 Revision history for DateStamp
 
+1.0.3 Fri Jan 13 16:55:15 CST 2006 
+      Ah, a new year. A new month. A slew of bugs revealed. Fixed some
+      problems with how the month/day/year was being looked up. No
+      changes to any of the interface methods.
+
+
 1.0.2  Tue Nov 29 19:23:49 CST 2005
        Fixed %day_alpha error. Renamed entire release from
        "DateTime::Current" to "DateStamp" because of namespace
