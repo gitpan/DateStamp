@@ -70,7 +70,7 @@ ok(
    "return_day: long = $day_long"
    );
 like(
-     $day_num, qr/[1-31]/, 
+     $day_num, qr/\d+/, 
      "return_day: digit check"
      ); 
 like(

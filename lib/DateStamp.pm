@@ -5,7 +5,7 @@ package DateStamp;
 # | EMAIL   | perldev@monkeybytes.org
 # | ID      | $Id: DateStamp.pm 6 2006-01-13 23:00:39Z Todd Wylie $
 
-use version; $VERSION = qv('1.0.3');
+use version; $VERSION = qv('1.0.4');
 use warnings;
 use strict;
 use Carp;
@@ -416,7 +416,7 @@ DateStamp - A simple OO interface to current system time and date.
 
 =head1 VERSION
 
-This document describes DateStamp version 1.0.3
+This document describes DateStamp version 1.0.4
 
 
 =head1 SYNOPSIS
